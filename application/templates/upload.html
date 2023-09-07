@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classification</title>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png">
+        <input type="submit" value="Upload">
+    </form>
+    {% if filename %}
+    <p>Uploaded Image: {{ filename }}</p>
+    <p>Predicted Class: {{ predicted_class }}</p>
+    <!-- Add an img tag to display the uploaded image -->
+    <img src="{{ url_for('static', filename='uploaded_images/' + filename) }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
